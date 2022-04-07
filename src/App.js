@@ -15,18 +15,14 @@ function useInput(defaultValue) {
 }
 
 function useFetch(url) {
-  console.log(url);
   const [payload, setPayload] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   const callUrl = async () => {
     try {
-      console.log("try", url);
-
       const { data } = await Axios.get(url);
-      console.log("get data");
-      // throw Error();
+
       setPayload(data);
     } catch {
       setError("☹️");
@@ -48,7 +44,6 @@ function App() {
   // const { payload, loading, error } = useFetch(
   //   "https://api.thecatapi.com/v1/images/search"
   // );
-  console.log(payload, loading, error);
 
   return (
     <div className="App">
